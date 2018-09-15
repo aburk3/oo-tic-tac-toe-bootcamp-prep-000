@@ -74,6 +74,7 @@ end
   def full?
     @board.all? do |location|
       location == "X" || location == "O"
+    end
   end
 
 
