@@ -33,9 +33,15 @@ class TicTacToe
     !position_taken?(index) && index.between?(0,8)
   end
 
-  def turn_count
-    @board.count{|square| square != " " }
+def turn_count
+  counter = 0
+  @board.each do |turn|
+  if turn == "X" || turn == "O"
+    counter += 1
   end
+end
+counter
+end
 
   def current_player
     turn_count.even? ? "X" : "O"
