@@ -94,7 +94,9 @@ end
   def play
     while !over?
       turn
+    end
   end
+  
   if won?
     puts "Congratulations #{winner(board)}!"
   elsif draw?
