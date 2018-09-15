@@ -76,7 +76,7 @@ class TicTacToe
 
   def winner
     if winnerChickenDinner = won?
-      board[winnerChickenDinner.first]
+      @board[winnerChickenDinner.first]
     end
   end
 
