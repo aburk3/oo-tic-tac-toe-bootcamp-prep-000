@@ -10,7 +10,8 @@ class TicTacToe
       [0,4,8],
       [2,4,6]
       ]
-      
+    end
+    
   def display_board
     puts " #{board[0]} | #{board[1]} | #{board[2]} "
     puts "-----------"
@@ -20,7 +21,7 @@ class TicTacToe
   end
   
   def input_to_index(user_input)
-  user_input.to_i - 1
+    user_input.to_i - 1
   end
   
   def player_move(index, player)
