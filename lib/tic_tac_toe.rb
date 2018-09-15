@@ -74,8 +74,8 @@ class TicTacToe
     won? || draw?
   end
 
-  def winner(board)
-    if winnerChickenDinner = won?(board)
+  def winner
+    if winnerChickenDinner = won?
       board[winnerChickenDinner.first]
     end
   end
