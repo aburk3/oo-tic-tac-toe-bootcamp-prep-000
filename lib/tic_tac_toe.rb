@@ -74,9 +74,9 @@ class TicTacToe
     won? || draw?
   end
 
-  def winner
-    if combo = won?
-      @board[combo[0]]
+  def winner(board)
+    if winnerChickenDinner = won?(board)
+      board[winnerChickenDinner.first]
     end
   end
 
