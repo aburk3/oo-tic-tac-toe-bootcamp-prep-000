@@ -56,45 +56,34 @@ end
     if turn_count.even? ? "X" : "O"
   end
 
-  def won?(board)
-    WIN_COMBINATIONS.detect do |combo|
-      @board[combo[0]] == @board[combo[1]] &&
-      @board[combo[1]] == @board[combo[2]] &&
-      position_taken?(combo[1])
-      return combo
-    end
-  end
-  
-  def full?
-    @board.all? do |location|
-      location == "X" || location == "O"
+   def won?
+    WIN_COMBINATIONS.any? do |combo|
+      if position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
+        return combo
+      end
     end
   end
 
+  def full?
+    @board.all?{|square| square != " " }
+  end
 
   def draw?
-    !won? && full?
+    full? && !won?
   end
 
   def over?
-    won? || draw? || full?
+    won? || draw?
   end
- 
+
   def winner
-    if winnerChickenDinner = won?
-      @board[winnerChickenDinner.first]
+    if combo = won?
+      @board[combo[0]]
     end
   end
 
   def play
-    while !over?
-      turn
-    end
-  end
-  
-  if won?
-    puts "Congratulations #{winner(board)}!"
-  elsif draw?
-    puts "Cat's Game!"
+    turn until over?
+    puts winner ? "Congratulations #{winner}!" : "Cat's Game!"
   end
 end
