@@ -51,9 +51,6 @@ end
   def turn_count
     @board.count{|square| square != " "}
   end
-end
-counter
-end
 
   def current_player
     if turn_count.even? ? "X" : "O"
