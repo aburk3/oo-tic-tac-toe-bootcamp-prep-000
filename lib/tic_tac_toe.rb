@@ -25,7 +25,7 @@ class TicTacToe
   end
   
   def player_move(index, player)
-  @board[index] = player
+    @board[index] = player
   end
 
   def position_taken?(index)
@@ -54,6 +54,7 @@ end
 
   def current_player
     if turn_count.even? ? "X" : "O"
+    end
   end
 
   def won?(board)
